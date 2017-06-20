@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Website Name</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<script>
+function r(){
+     var x="<%=msg%>";
+     if("<%=msg%>")
+	 {document.getElementById("log").innerHTML="<li><a href='logout'>You are login as "+x+"</a></li>";}
+	 }
+	 </script>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Kiwee</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="mainpage">Home</a></li>
+      <li class="active"><a href="shotel">Serach Hotel</a></li>
+      <li><a href="aboutus">About Us</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" id="log">
+      <li><a href="signin"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+	<script>
+	r();
+	</script>
+  </div>
+</nav>
+  
+<div class="container">
+  <center><h1>Veg Kolhapuri</h1></center>
+  <center><h3>Fill below form to add reviews</h3></center>
+  
+  <form action="/vegk" method="post">
+    <div class="form-group">
+      <label for="review">Enter Description</label>
+      <textarea name="review"></textarea><br>
+	  <br>
+	  <label for="rate">Ratings</label>
+			<input type="text" name="rate">
+      <br>
+	  <br>
+	  <center><button type="submit" class="btn btn-default">Submit</button></center>
+    </div>
+  </form>
+  <center><h4>Click on dishes to add Reviews</h4></center>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Review</th>
+		<th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+	<% vrind.forEach(function(item){ %>
+      <tr>
+	     
+        <td><%=item.username%></td>
+        <td><%=item.review%></td>
+		<td><%=item.rating%></td>
+		
+      </tr>
+	 <% }); %>
+	  
+     
+    </tbody>
+  </table>
+  
+  
+  
+</div>
+
+
+</body>
+</html>

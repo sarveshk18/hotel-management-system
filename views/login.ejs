@@ -1,0 +1,170 @@
+<html>
+<head>
+<title>
+	TryVanilla</title>
+	<style type="text/css">
+		#divi2
+		{
+			position: fixed;
+			height:100%;
+			width: 300px;
+			background-color: rgba(0,0,0,0.7);
+			float:left;
+			z-index: 1;
+		}
+		#divi1
+		{
+			position: absolute;
+			height:100%;
+			width:100%;
+			background-repeat: no-repeat;
+			z-index: -1;
+		}
+		#first
+		{
+			color: 	#C0C0C0;
+			font-size: 40px;
+			font-family:Comic Sans Ms;
+			text-decoration: underline;
+			text-decoration-color: #FFFAFA;
+
+		}
+		#second
+		{
+			color:#C0C0C0;
+			text-align: left;
+			font-size: 20px;
+			font-family: Comic Sans Ms;
+		}
+		.button1
+		{
+			border: solid;
+			border-color: #C0C0C0; 
+			background-color:black;
+			color:#C0C0C0;
+			font-size:24px;
+		}
+		.button1:hover
+		{
+			border: solid;
+			border-color: black; 
+			background-color:#C0C0C0;
+			color:black;
+			font-size: 24px;
+		}
+		.button2
+		{
+			border: solid;
+			border-color: #C0C0C0; 
+			background-color:black;
+			color:#C0C0C0;
+			font-size: 24px;
+		}
+		.button2:hover
+		{
+			border: solid;
+			border-color: black; 
+			border: none;
+			background-color:#C0C0C0;
+			color:black;
+			font-size: 24px;
+		}
+		.image
+		{
+			position: absolute;
+			height: 100%;
+			width:100%;
+			left: 0px;
+    		top: 0px;
+    		z-index: -1;
+		}
+		.slideshow-container
+		{
+ 			 max-width: 100%;
+  		}
+  		.active 
+  		{
+ 			background-color: #717171;
+		}
+/* Fading animation */
+		.fade 
+		{
+           -webkit-animation-name: fade;
+           -webkit-animation-duration: 1.5s;
+  			animation-name: fade;
+  			animation-duration: 1.5s;
+		}
+		.dot {
+  height: 0px;
+  width: 0px;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+	</style>
+	<link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+</head>
+<body bgcolor="black">
+<div id="divi1">
+	<div id="divi1" class="slideshow-container">
+	<div class="mySlides Fade" id="divi1">
+	<img src="pizza.jpg" class="image">
+	</div>
+	<div class="mySlides Fade" id="divi1">
+	<img src="bur.jpg" class="image">
+	</div>
+	<div class="mySlides Fade" id="divi1">
+	<img src="co.jpg" class="image">
+	</div>
+	<div class="mySlides Fade" id="divi1">
+	<img src="bbq.jpg" class="image">
+	</div>
+	</div>
+	<div style="text-align: center;">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+</div>
+	<div id="divi2">
+	<p id="first"><img src="keewee.png" height="200px" width="200px"></p>
+	<p style="color: red;"><%= msg %></p>
+	<form name="login" method="post" action="/login">
+	<p id="second">Username</p><p><input type="text" name="username"></p>
+	<p id="second">Password</p><p><input type="password" name="password"></p>
+	<p align="center"><input type="submit" name="login" value="Login" class="button1">
+	<a href="signin"> <input type="button" name="sign-up" value="Sign-up" class="button2"></a></p>
+	</form>
+	</div>
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex> slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 4000); // Change image every 4 seconds
+}
+</script>
+</body>
+</html>

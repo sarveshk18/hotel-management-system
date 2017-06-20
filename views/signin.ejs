@@ -1,0 +1,166 @@
+<html>
+	<head>
+	<meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+ <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script> 
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
+
+<script>
+	$(document).ready(function(){
+     $("#signupform").validate({
+	 rules: {
+	    name:"required",
+		username:"required",
+		password:"required",
+		address:"required",
+		repassword: {
+        required : true,
+        equalTo:"#passwd"
+    },
+		birthday: {
+        required : true,
+        date : true,
+    },
+		  email:{
+  required:true,
+  email:true
+  },
+       
+		phone:{
+		required:true,
+		maxlength:10,
+		minlength:10,
+		number:true
+		},
+		agree:"required"
+		},
+		messages:{
+		name:"Please enter your name",
+		username:"Please enter your username",
+		password:"Please enter your password",
+		repassword:"Please enter same password again",
+	    address:"Please enter your address",
+		email:"Please enter proper email",
+		birthday:"Please enter proper date in dd/mm/yyyy",
+		phone:{
+		required:"Please enteryour mobile no",
+		maxlength:"no. should be 10 digits",
+		minlength:"no. should be 10 digits",
+		number:"enter no."
+		}
+		},
+		submitHandler: function(form){
+		form.submit();
+		}
+		});
+});
+
+
+</script>
+
+
+
+
+ <style type="text/css">
+ 	.mydiv1
+ 	{
+ 		background-image: url(xyz1.jpg);
+ 		background-size:cover;
+ 		height:100%;
+ 		width:100%;
+ 	}
+ 	.mydiv2
+ 	{
+ 		margin-top:30px;
+ 		margin-left:10%;
+ 		font-size: 24px;
+ 		font-family: Comic Sans Ms;
+ 		height: 80%;
+ 		width: 80%;
+ 		color: white;
+ 		background-color: rgba(0,0,0,0.5);
+ 	}
+ 	p{
+ 		text-align: center;
+ 	}
+ 	tr
+ 	{
+ 		text-align: center;
+ 		color: red;
+ 		font-size:24px;
+ 	}
+ 	input
+ 	{
+ 		width: 60%;
+ 		margin-left: 0px;
+ 	}
+ 	
+  }
+ </style>
+ <script type="text/javascript"></script>
+	</head>
+	<body>
+		<div class="container-fluid mydiv1"><h1 style="text-align: center;">SIGN-UP</h1>
+			<div class="row">
+				<div class="col-sm-12">
+					
+						
+						<form name="signup" method="post" action="/signin" id="signupform">
+							<div class="item"><h2 style="text-align: center;">Personal details</h2>
+							<h2 style="color: red;text-align: center;"><%= msg %></h2>
+							
+								<table align="center" height="80%" width="100%">
+									<tr>
+										<td>Name:</td>
+										<td><input type="text" name="name"></td>
+									</tr>
+									<tr>
+										<td>Username:</td>
+										<td><input type="text" name="username"></td>
+									</tr>
+									<tr>
+										<td>Password:</td>
+										<td><input type="password" name="password" id="passwd"></td>
+									</tr>
+									<tr>
+										<td>Re-Enter your password:</td>
+										<td><input type="password" name="repassword"></td>
+									</tr>
+									<tr>
+										<td>Birthday:</td>
+										<td><input type="text" name="birthday"></td>
+									</tr>
+								
+									<tr>
+										<td>Email:</td>
+										<td><input type="email" name="email"></td>
+									</tr>
+									<tr>
+										<td>Mobile:</td>
+										<td><input type="text" name="phone"></td>
+									</tr>
+									<tr>
+										<td>Address: </td>
+										<td><input type="text" name="address"></td>
+									</tr>
+									<tr>
+										<td colspan="2">
+										<input type="submit" name="signin" value="Signup" class="button1"></td>
+										
+									</tr>
+								</table>
+							</div>
+						</form>
+						
+						
+				
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
